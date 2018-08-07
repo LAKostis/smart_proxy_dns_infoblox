@@ -2,7 +2,7 @@ module Proxy::Dns::Infoblox
   class Record < ::Proxy::Dns::Record
     attr_reader :connection, :dns_view
 
-    def initialize(host, connection, ttl, dns_view = 'default')
+    def initialize(host, connection, ttl, dns_view)
       ENV['WAPI_VERSION']='2.0'
       @connection = connection
       @dns_view = dns_view
@@ -62,7 +62,7 @@ module Proxy::Dns::Infoblox
     def ib_remove_ptr_record(ptr)
       ip = IPAddr.new(ptr_to_ip(ptr))
 
-      params = { }
+      params = {}
       params["ipv#{ip.ipv4? ? 4 : 6}addr".to_sym] = ip.to_s
 
       ib_delete(Infoblox::Ptr, params)
