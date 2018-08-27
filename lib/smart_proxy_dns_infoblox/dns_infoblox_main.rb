@@ -69,7 +69,7 @@ module Proxy::Dns::Infoblox
     end
 
     def ib_create(clazz, params)
-      clazz.new({ :connection => connection, :view => view }.merge(params)).post
+      clazz.new({ :connection => connection, :view => dns_view }.merge(params)).post
     end
 
     def ib_delete(clazz, params)

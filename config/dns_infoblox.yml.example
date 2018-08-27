@@ -3,7 +3,7 @@
 # Configuration file for 'infoblox dns provider
 #
 
-:username: "infoblox"
-:password: "infoblox"
+:dns_username: "infoblox"
+:dns_password: "infoblox"
 :dns_server: "infoblox.my.domain"
-:view: "default"
+:dns_view: "default"

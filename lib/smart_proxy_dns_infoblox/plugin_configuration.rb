@@ -10,8 +10,8 @@ module Proxy::Dns::Infoblox
       container_instance.dependency :connection,
                                     (lambda do
                                       ::Infoblox.wapi_version = '2.0'
-                                      ::Infoblox::Connection.new(:username => settings[:username],
-                                                                 :password => settings[:password],
+                                      ::Infoblox::Connection.new(:username => settings[:dns_username],
+                                                                 :password => settings[:dns_password],
                                                                  :host => settings[:dns_server],
                                                                  :ssl_opts => {:verify => false})
                                     end)
