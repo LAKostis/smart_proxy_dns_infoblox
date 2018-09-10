@@ -7,3 +7,6 @@
 :dns_password: "infoblox"
 :dns_server: "infoblox.my.domain"
 :dns_view: "default"
+# When API server is not a DNS server
+# see https://github.com/theforeman/smart_proxy_dns_infoblox/pull/17
+# :infoblox_host: "infoblox.ui.domain"

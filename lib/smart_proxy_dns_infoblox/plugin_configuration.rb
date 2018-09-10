@@ -7,12 +7,13 @@ module Proxy::Dns::Infoblox
     end
 
     def load_dependency_injection_wirings(container_instance, settings)
+      conn_host = settings[:infoblox_host].nil? ? settings[:dns_server] : settings[:infoblox_host]
       container_instance.dependency :connection,
                                     (lambda do
                                       ::Infoblox.wapi_version = '2.0'
                                       ::Infoblox::Connection.new(:username => settings[:dns_username],
                                                                  :password => settings[:dns_password],
-                                                                 :host => settings[:dns_server],
+                                                                 :host => conn_host,
                                                                  :ssl_opts => {:verify => false})
                                     end)
       container_instance.dependency :dns_provider,
